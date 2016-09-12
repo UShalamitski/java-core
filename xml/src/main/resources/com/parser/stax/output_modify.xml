@@ -1,0 +1,20 @@
+<?xml version="1.0"?><class>
+    <people>
+        <firstname>DINKAR</firstname>
+        <lastname>KAD</lastname>
+        <nickname>DINKAR</nickname>
+        <marks>85</marks>
+    </people>
+    <people>
+        <firstname>VANEET</firstname>
+        <lastname>GUPTA</lastname>
+        <nickname>VINNI</nickname>
+        <marks>95</marks>
+    </people>
+    <people>
+        <firstname>JASVIR</firstname>
+        <lastname>SINGN</lastname>
+        <nickname>JAZZ</nickname>
+        <marks>90</marks>
+    </people>
+</class>

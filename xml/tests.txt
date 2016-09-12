@@ -1,0 +1,41 @@
+PREC1V2	
+
+- 25_UpdateFunderNamefieldWithPartialUpdateREST_AUTO1075
+	В тестах жестко прописан ID. Замена его на динамический решает проблему
+	
+- 01_Security verification_Create Manuscript_AUTO0070
+- 02_Security verification_Update Manuscript_AUTO0071
+	В этих тестах жестко прописан юсер autouser2@copyright.com, доступ которым возвращает ACCESS_FORBIDDEN. В больщинстве тестах используется $CFG(REST_USER), который равен apcuser1@copyright.com. Замена на apcuser1@copyright.com или создание autouser2@copyright.com решит проблему
+	
+- UpdatePubCodeJournalCodeExternalRefID_AUTO0052
+	Тест проверяет несуществующего паблишера. В тесте он указан как CUP. Смена на несуществующего для dev решает проблему
+
+- 21_Verifying_case-insensitivity_for_parameter_ManuscriptID_AUTO1041
+	В запросе жестко прописан ID. Тест проверяет передачу этого ID в разных регистрах. Для dev этот тест был удален. Для этого теста возможно стоит сделать также
+
+- Verification_of_Start_Page_with_Get_Payment_Status_changes_AUTO1164
+- Validation_of_Optional_Parameter_with_Get_Payment_Status_changes_AUTO1171
+	В данных тестах проблема решается увеличением endDate больше текушей даты. Или заменой startDate и endDate на $VAR{yesterday}T00:00:00 и $VAR{today}T23:59:59
+
+- 25_Verify GET TRANSACTION DETAILS BY TransactionId using API Manager_AUTO1215
+	Возвращает ошибку Error while accessing backend services for API key validation
+	
+	
+PREC1V1
+
+- UpdatePubCodeJournalCodeExternalRefID_AUTO0052
+	Тест проверяет несуществующего паблишера. В тесте он указан как CUP. Смена на несуществующего для dev решает проблему
+	
+- 08_Security verification_using API Manager(user belongs to publisher)_AUTO0078
+	Возвращает ошибку Error while accessing backend services for API key validation
+	
+- ManuscriptCreationVerification_MaxLengthFields_AUTO0081
+	Возвращает ошибку Request method 'GET' not supported
+
+	
+
+Так же в конфигурации для обоих prec есть параметры 
+	EXT_MANUSCRIPT_ID=DONOT460
+	__EXTERNAL_MANUSCRIPT_ID__=DONOT460
+Все тесты использующие их не работают. Замена значения на любое другое, например "DONOT560", делает тесты рабочими. В этих тестах также присутствует проверка, что количество манускриптов с подобным external_manuscript_id равно нулю, без которой тесты выполнятся с оригинальными параметрами. Следовательно в базе данных уже существует подобный манускрипт 
+	
