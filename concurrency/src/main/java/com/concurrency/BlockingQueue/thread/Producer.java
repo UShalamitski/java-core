@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 /**
  * Created by Uladzislau_Shalamits on 9/12/2016.
  */
-public class Producer implements Runnable {
+public class Producer<T> implements Runnable {
     protected BlockingQueue<Integer> queue = null;
 
     public Producer(BlockingQueue queue) {
